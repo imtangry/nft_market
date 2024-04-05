@@ -27,7 +27,7 @@ const HelpCenter = () => {
     <div className="dropdown">
       {menu.map((v, i) => (
         <div key={i}>
-          <Link className='inline-block w-full py-2 px-3 rounded-md hover:bg-slate-500' href={{ pathname: v.path }}>{v.name}</Link>
+          <Link className='inline-block w-full py-2 px-3 rounded-md hover:bg-slate-300 dark:hover:bg-slate-500' href={{ pathname: v.path }}>{v.name}</Link>
         </div>
       ))}
     </div>

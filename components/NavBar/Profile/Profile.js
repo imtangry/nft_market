@@ -22,21 +22,21 @@ const Profile = () => {
 
       <div className="mt-4">
         <div>
-          <div className="flex items-center rounded-md pl-2 hover:bg-slate-500">
+          <div className="flex items-center rounded-md pl-2 hover:bg-slate-300 dark:hover:bg-slate-500">
             <FaUserAlt />
             <p className="pl-3 flex-1">
               <Link className="inline-block py-3 pr-2 w-full" href={{ pathname: 'my-profile' }}>My Profile</Link>
             </p>
           </div>
 
-          <div className="flex items-center rounded-md pl-2 hover:bg-slate-500">
+          <div className="flex items-center rounded-md pl-2 hover:bg-slate-300 dark:hover:bg-slate-500">
             <FaRegImage />
             <p className="pl-3 flex-1">
               <Link className="inline-block py-3 pr-2 w-full" href={{ pathname: 'my-items' }}>My Items</Link>
             </p>
           </div>
 
-          <div className="flex items-center rounded-md pl-2 hover:bg-slate-500">
+          <div className="flex items-center rounded-md pl-2 hover:bg-slate-300 dark:hover:bg-slate-500">
             <FaUserEdit />
             <p className="pl-3 flex-1">
               <Link className="inline-block py-3 pr-2 w-full" href={{ pathname: 'edit-profile' }}>Edit Profile</Link>
@@ -47,14 +47,14 @@ const Profile = () => {
         <div className="border-b m-2 mx-3 dark:border-slate-400 border-slate-500" />
 
         <div>
-          <div className="flex items-center rounded-md pl-2 hover:bg-slate-500">
+          <div className="flex items-center rounded-md pl-2 hover:bg-slate-300 dark:hover:bg-slate-500">
             <MdHelpCenter />
             <p className="pl-3 flex-1">
               <Link className="inline-block py-3 pr-2 w-full" href={{ pathname: 'help' }}>Help</Link>
             </p>
           </div>
 
-          <div className="flex items-center rounded-md pl-2 hover:bg-slate-500">
+          <div className="flex items-center rounded-md pl-2 hover:bg-slate-300 dark:hover:bg-slate-500">
             <TbDownload />
             <p className="pl-3 flex-1">
               <Link className="inline-block py-3 pr-2 w-full" href={{ pathname: 'disconnect' }}>Disconnect</Link>

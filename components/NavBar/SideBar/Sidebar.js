@@ -125,7 +125,7 @@ const SideBar = ({ setOpenSideMenu }) => {
         <div className="font-bold">
 
           <div>
-            <div className="flex items-center justify-between py-2 hover:bg-slate-500 rounded-md px-2" onClick={openDiscoverMenu}>
+            <div className="flex items-center justify-between py-2 hover:bg-slate-300 dark:hover:bg-slate-500 rounded-md px-2" onClick={openDiscoverMenu}>
               <p>Discover</p>
               <TiArrowSortedDown />
             </div>
@@ -134,7 +134,7 @@ const SideBar = ({ setOpenSideMenu }) => {
                 <div>
                   {discover.map((v, i) => (
                     <p key={i}>
-                      <Link className='inline-block w-full p-2 pl-4 rounded-md hover:bg-slate-500' href={{ pathname: v.link }}>{v.name}</Link>
+                      <Link className='inline-block w-full p-2 pl-4 rounded-md hover:bg-slate-300 dark:hover:bg-slate-500' href={{ pathname: v.link }}>{v.name}</Link>
                     </p>
                   ))}
                 </div>
@@ -143,7 +143,7 @@ const SideBar = ({ setOpenSideMenu }) => {
           </div>
 
           <div>
-            <div className="flex items-center justify-between py-2 hover:bg-slate-500 rounded-md px-2" onClick={openHelpMenu}>
+            <div className="flex items-center justify-between py-2 hover:bg-slate-300 dark:hover:bg-slate-500 rounded-md px-2" onClick={openHelpMenu}>
               <p>Help Center</p>
               <TiArrowSortedDown />
             </div>
@@ -152,7 +152,7 @@ const SideBar = ({ setOpenSideMenu }) => {
                 <div>
                   {help.map((v, i) => (
                     <p key={i}>
-                      <Link className='inline-block w-full p-2 pl-4 rounded-md hover:bg-slate-500' href={{ pathname: v.link }}>{v.name}</Link>
+                      <Link className='inline-block w-full p-2 pl-4 rounded-md hover:bg-slate-300 dark:hover:bg-slate-500' href={{ pathname: v.link }}>{v.name}</Link>
                     </p>
                   ))}
                 </div>
