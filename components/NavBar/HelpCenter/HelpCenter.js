@@ -1,8 +1,36 @@
-import React from 'react'
+import Link from "next/link"
 
+const menu = [
+  {
+    name: 'About',
+    link: 'about'
+  },
+  {
+    name: 'Contact Us',
+    link: 'contact-us'
+  },
+  {
+    name: 'Sign Up',
+    link: 'sign-up'
+  },
+  {
+    name: 'Sign In',
+    link: 'sign-in'
+  },
+  {
+    name: 'Subscription',
+    link: 'subscription'
+  }
+]
 const HelpCenter = () => {
   return (
-    <div>HelpCenter</div>
+    <div>
+      {menu.map((v, i) => (
+        <div key={i}>
+          <Link href={{ pathname: v.path }}>{v.name}</Link>
+        </div>
+      ))}
+    </div>
   )
 }
 
