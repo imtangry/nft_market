@@ -1,6 +1,6 @@
-function Button({ children, btnText = '' }) {
+function Button({ children, btnText = '', className = '' }) {
   return (
-    <button className="rounded-full px-4 h-8 bg-sky-500 hover:bg-sky-400">{children || btnText}</button>
+    <button className={['rounded-full px-4 h-8 dark:bg-sky-500 dark-hover:bg-sky-400 text-slate-50 bg-slate-500 hover:bg-slate-400', className].join(' ')}>{children || btnText}</button>
   )
 }
 

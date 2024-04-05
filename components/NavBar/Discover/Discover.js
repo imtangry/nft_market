@@ -32,10 +32,10 @@ const discover = [
 ]
 const Discover = () => {
   return (
-    <div>
+    <div className='dropdown'>
       {discover.map((v, i) => (
         <div key={i}>
-          <Link href={{ pathname: v.link }}>{v.name}</Link>
+          <Link className='inline-block w-full py-2 px-3 rounded-md hover:bg-slate-500' href={{ pathname: v.link }}>{v.name}</Link>
         </div>
       ))}
     </div>

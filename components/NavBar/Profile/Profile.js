@@ -8,52 +8,56 @@ import Link from "next/link"
 
 const Profile = () => {
   return (
-    <div>
-      <div>
-        <Image src={image.user} alt='user profile' width='30' height='30' />
+    <div className="dropdown right-0">
+      <div className="flex px-2 mt-2">
+        <div className="flex items-center pr-3">
+          <Image src={image.user} alt='user profile' width='30' height='30' />
+        </div>
+
+        <div className="flex flex-col justify-center flex-1 overflow-hidden">
+          <p className="font-bold">Rhys</p>
+          <small>123333333..22222f2f2f2f2f2f2f2f2f2f22.</small>
+        </div>
       </div>
 
-      <div>
-        <p>Rhys</p>
-        <small>123333333...</small>
-      </div>
-
-      <div>
+      <div className="mt-4">
         <div>
-          <div>
+          <div className="flex items-center rounded-md pl-2 hover:bg-slate-500">
             <FaUserAlt />
-            <p>
-              <Link href={{ pathname: 'my-profile' }}>My Profile</Link>
+            <p className="pl-3 flex-1">
+              <Link className="inline-block py-3 pr-2 w-full" href={{ pathname: 'my-profile' }}>My Profile</Link>
             </p>
           </div>
 
-          <div>
+          <div className="flex items-center rounded-md pl-2 hover:bg-slate-500">
             <FaRegImage />
-            <p>
-              <Link href={{ pathname: 'my-items' }}>My Items</Link>
+            <p className="pl-3 flex-1">
+              <Link className="inline-block py-3 pr-2 w-full" href={{ pathname: 'my-items' }}>My Items</Link>
             </p>
           </div>
 
-          <div>
+          <div className="flex items-center rounded-md pl-2 hover:bg-slate-500">
             <FaUserEdit />
-            <p>
-              <Link href={{ pathname: 'edit-profile' }}>Edit Profile</Link>
+            <p className="pl-3 flex-1">
+              <Link className="inline-block py-3 pr-2 w-full" href={{ pathname: 'edit-profile' }}>Edit Profile</Link>
             </p>
           </div>
         </div>
 
+        <div className="border-b m-2 mx-3 dark:border-slate-400 border-slate-500" />
+
         <div>
-          <div>
+          <div className="flex items-center rounded-md pl-2 hover:bg-slate-500">
             <MdHelpCenter />
-            <p>
-              <Link href={{ pathname: 'help' }}>Help</Link>
+            <p className="pl-3 flex-1">
+              <Link className="inline-block py-3 pr-2 w-full" href={{ pathname: 'help' }}>Help</Link>
             </p>
           </div>
 
-          <div>
+          <div className="flex items-center rounded-md pl-2 hover:bg-slate-500">
             <TbDownload />
-            <p>
-              <Link href={{ pathname: 'disconnect' }}>Disconnect</Link>
+            <p className="pl-3 flex-1">
+              <Link className="inline-block py-3 pr-2 w-full" href={{ pathname: 'disconnect' }}>Disconnect</Link>
             </p>
           </div>
 

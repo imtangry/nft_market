@@ -8,6 +8,7 @@ import Link from 'next/link'
 import { MdOutlineNotificationsNone, MdOutlineNotificationsActive } from 'react-icons/md'
 import { BiSearchAlt } from 'react-icons/bi'
 import { CgMenuLeft, CgMenuRight } from 'react-icons/cg'
+import { HiOutlineMoon, HiOutlineSun } from "react-icons/hi";
 //  IMPORT ICON END
 
 // IMPORT COMP START
@@ -16,6 +17,7 @@ import { Button } from '../index'
 // IMPORT COMP END
 
 import images from '@/assets/image/index'
+import { useBaseContext } from '../Providers'
 
 const NavBar = () => {
     const [discover, setDiscover] = useState(false)
@@ -57,28 +59,29 @@ const NavBar = () => {
         setOpenSideMenu(true)
     }
 
-
+    const { state: { theme }, setState } = useBaseContext()
     return (
-        <div className='w-screen h-20 bg-slate-700'>
-            <div className='container mx-auto h-full px-4 bg-slate-800 flex items-center justify-between'>
+        <div className='w-screen h-20 bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-slate-100'>
+            <div className='container mx-auto h-full px-1 sm:px-2 dark:bg-slate-800 flex items-center justify-between'>
                 {/* bar left */}
                 <div className='flex items-center'>
                     {/* logo */}
                     <div className='flex mr-4 items-center'>
                         <Image src={images.logo} width={46} height={46} alt='NFT MARKET LOGO' />
-                        <h1 className='ml-3 text-slate-100 font-bold'>Daisy.</h1>
+                        <h1 className='ml-2 sm:ml-3 font-bold text-xl'>Daisy.</h1>
                     </div>
                     {/* search */}
-                    <div className='relative'>
-                        <input type="text" placeholder='搜索NFT' className='peer px-4 pr-8 w-56 md:w-64 lg:72 text-slate-100 outline-0 rounded-full h-10 bg-transparent border border-slate-600 focus:border-slate-400' />
+                    <div className='relative hidden md:block'>
+                        <input type="text" placeholder='搜索NFT' className='peer px-4 pr-8 w-52 md:w-64 lg:72 outline-0 rounded-full h-10 bg-transparent border border-slate-600 focus:border-slate-400' />
                         <BiSearchAlt onClick={() => { }} className='absolute text-xl top-1/2 right-2 -translate-y-1/2 text-slate-600 peer-focus:text-slate-400' />
                     </div>
                 </div>
+
                 {/* bar right */}
-                <div className='items-center text-sm text-slate-100 hidden md:flex'>
+                <div className='items-center text-sm flex ml-auto'>
                     {/* Discover */}
-                    <div className='mx-2'>
-                        <p className='tracking-widest' onClick={openMenu}>发现</p>
+                    <div className='mx-2 relative hidden md:block '>
+                        <p className='tracking-widest cursor-pointer' onClick={openMenu}>发现</p>
                         {discover && (
                             <div>
                                 <Discover />
@@ -86,8 +89,8 @@ const NavBar = () => {
                         )}
                     </div>
                     {/* Help Center */}
-                    <div className='mx-2 tracking-widest'>
-                        <p onClick={openMenu}>帮助</p>
+                    <div className='mx-2 relative hidden md:block '>
+                        <p className='tracking-widest cursor-pointer' onClick={openMenu}>帮助</p>
                         {help && (
                             <div>
                                 <HelpCenter />
@@ -95,11 +98,16 @@ const NavBar = () => {
                         )}
                     </div>
 
-                    <div className='w-1 h-4 border-r border-slate-600 mx-4' />
+                    <div className='w-1 h-4 border-r border-slate-600 mx-2 hidden md:block ' />
+
+                    {/* theme change */}
+                    <div className='mx-2 text-xl'>
+                       {theme === 'dark' ?  <HiOutlineMoon className='cursor-pointer' onClick={()=>{setState((v)=>({...v,theme:'light'}))}}/> : <HiOutlineSun className='cursor-pointer' onClick={()=>{setState((v)=>({...v,theme:'dark'}))}}/>}
+                    </div>
 
                     {/* Notification */}
-                    <div className='mx-2'>
-                        <MdOutlineNotificationsNone className='text-2xl' onClick={openNotification} />
+                    <div className='mx-2 relative'>
+                        <MdOutlineNotificationsNone className='text-2xl cursor-pointer' onClick={openNotification} />
                         {/* <MdOutlineNotificationsActive onClick={openNotification} /> */}
                         {notification && (
                             <div>
@@ -109,19 +117,21 @@ const NavBar = () => {
                     </div>
 
                     {/* Create button */}
-                    <div className='mx-2 tracking-widest'>
+                    <div className='mx-2 tracking-widest hidden md:block '>
                         <Button btnText='创建'></Button>
                     </div>
 
                     {/* User Profile */}
-                    <div className='mx-2'>
+                    <div className='mx-2 relative'>
                         <div className='p-2 rounded-full bg-slate-200 hover:bg-slate-100 cursor-pointer'>
                             <Image src={images.user} width='24' height='24' alt='USER ICON' onClick={openProfile} />
                         </div>
                         {profile && <Profile />}
                     </div>
                 </div>
-                <div className='md:hidden text-slate-100 text-2xl'>
+
+                {/* mobile menu */}
+                <div className='md:hidden text-2xl'>
                     <CgMenuRight onClick={openSideBar} />
                 </div>
             </div>
