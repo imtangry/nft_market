@@ -11,7 +11,7 @@ import { CgMenuLeft, CgMenuRight } from 'react-icons/cg'
 //  IMPORT ICON END
 
 // IMPORT COMP START
-import { Discover, HelpCenter, Notification, Profile, Sidebar } from './index'
+import { Discover, HelpCenter, Notification, Profile, SideBar } from './index'
 import { Button } from '../index'
 // IMPORT COMP END
 
@@ -41,12 +41,6 @@ const NavBar = () => {
             case '帮助':
                 setHelp(true);
                 break;
-            case '通知':
-                setNotification(true);
-                break;
-            case '资料':
-                setProfile(true);
-                break;
         }
     }
 
@@ -54,6 +48,15 @@ const NavBar = () => {
         hiddenAllMenu();
         setNotification(true)
     }
+    const openProfile = () => {
+        hiddenAllMenu();
+        setProfile(true)
+    }
+    const openSideBar = () => {
+        hiddenAllMenu();
+        setOpenSideMenu(true)
+    }
+
 
     return (
         <div className='w-screen h-20 bg-slate-700'>
@@ -72,7 +75,7 @@ const NavBar = () => {
                     </div>
                 </div>
                 {/* bar right */}
-                <div className='flex items-center text-sm text-slate-100'>
+                <div className='items-center text-sm text-slate-100 hidden md:flex'>
                     {/* Discover */}
                     <div className='mx-2'>
                         <p className='tracking-widest' onClick={openMenu}>发现</p>
@@ -92,7 +95,7 @@ const NavBar = () => {
                         )}
                     </div>
 
-                    <div className='w-1 h-4 border-r border-slate-600 mx-4'/>
+                    <div className='w-1 h-4 border-r border-slate-600 mx-4' />
 
                     {/* Notification */}
                     <div className='mx-2'>
@@ -105,7 +108,7 @@ const NavBar = () => {
                         )}
                     </div>
 
-                    {/* CREATE BTN */}
+                    {/* Create button */}
                     <div className='mx-2 tracking-widest'>
                         <Button btnText='创建'></Button>
                     </div>
@@ -113,17 +116,22 @@ const NavBar = () => {
                     {/* User Profile */}
                     <div className='mx-2'>
                         <div className='p-2 rounded-full bg-slate-200 hover:bg-slate-100 cursor-pointer'>
-                            <Image src={images.user} width='24' height='24' alt='USER ICON' />
+                            <Image src={images.user} width='24' height='24' alt='USER ICON' onClick={openProfile} />
                         </div>
-
-                        {profile && (
-                            <div>
-                                <Profile />
-                            </div>
-                        )}
+                        {profile && <Profile />}
                     </div>
                 </div>
+                <div className='md:hidden text-slate-100 text-2xl'>
+                    <CgMenuRight onClick={openSideBar} />
+                </div>
             </div>
+
+            {/* SideBar */}
+            {openSideMenu && (
+                <div>
+                    <SideBar setOpenSideMenu={setOpenSideMenu} />
+                </div>
+            )}
         </div>
     )
 }

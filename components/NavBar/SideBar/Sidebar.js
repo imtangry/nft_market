@@ -1,9 +1,7 @@
-import React from 'react'
-
-const Sidebar = () => {
+const SideBar = () => {
   return (
     <div>Sidebar</div>
   )
 }
 
-export default Sidebar
+export default SideBar
