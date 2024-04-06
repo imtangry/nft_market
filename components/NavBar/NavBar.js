@@ -2,7 +2,6 @@
 import { useState, useEffect } from 'react'
 
 import Image from 'next/image'
-import Link from 'next/link'
 
 //  IMPORT ICON START
 import { MdOutlineNotificationsNone, MdOutlineNotificationsActive } from 'react-icons/md'
@@ -13,7 +12,7 @@ import { HiOutlineMoon, HiOutlineSun } from "react-icons/hi";
 
 // IMPORT COMP START
 import { Discover, HelpCenter, Notification, Profile, SideBar } from './index'
-import { Button } from '../index'
+import { Button, Logo } from '@/components'
 // IMPORT COMP END
 
 import images from '@/assets/image/index'
@@ -66,10 +65,7 @@ const NavBar = () => {
                 {/* bar left */}
                 <div className='flex items-center'>
                     {/* logo */}
-                    <div className='flex mr-4 items-center'>
-                        <Image src={images.logo} width={46} height={46} alt='NFT MARKET LOGO' />
-                        <h1 className='ml-2 sm:ml-3 font-bold text-xl'>Daisy.</h1>
-                    </div>
+                    <Logo />
                     {/* search */}
                     <div className='relative hidden md:block'>
                         <input type="text" placeholder='搜索NFT' className='peer px-4 pr-8 w-52 md:w-64 lg:72 outline-0 rounded-full h-10 bg-transparent border border-slate-600 focus:border-slate-400' />
@@ -102,7 +98,7 @@ const NavBar = () => {
 
                     {/* theme change */}
                     <div className='mx-2 text-xl'>
-                       {theme === 'dark' ?  <HiOutlineMoon className='cursor-pointer' onClick={()=>{setState((v)=>({...v,theme:'light'}))}}/> : <HiOutlineSun className='cursor-pointer' onClick={()=>{setState((v)=>({...v,theme:'dark'}))}}/>}
+                        {theme === 'dark' ? <HiOutlineMoon className='cursor-pointer' onClick={() => { setState((v) => ({ ...v, theme: 'light' })) }} /> : <HiOutlineSun className='cursor-pointer' onClick={() => { setState((v) => ({ ...v, theme: 'dark' })) }} />}
                     </div>
 
                     {/* Notification */}
