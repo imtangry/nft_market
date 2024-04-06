@@ -60,8 +60,8 @@ const NavBar = () => {
 
     const { state: { theme }, setState } = useBaseContext()
     return (
-        <div className='w-screen h-20 bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-slate-100'>
-            <div className='container mx-auto h-full px-1 sm:px-2 dark:bg-slate-800 flex items-center justify-between'>
+        <div className='sticky top-0 w-screen themeable h-20'>
+            <div className='container mx-auto h-full px-4 sm:px-2 dark:bg-slate-800 flex items-center justify-between'>
                 {/* bar left */}
                 <div className='flex items-center'>
                     {/* logo */}
@@ -79,7 +79,7 @@ const NavBar = () => {
                     <div className='mx-2 relative hidden md:block '>
                         <p className='tracking-widest cursor-pointer' onClick={openMenu}>发现</p>
                         {discover && (
-                            <div>
+                            <div className='dropdown'>
                                 <Discover />
                             </div>
                         )}
@@ -88,7 +88,7 @@ const NavBar = () => {
                     <div className='mx-2 relative hidden md:block '>
                         <p className='tracking-widest cursor-pointer' onClick={openMenu}>帮助</p>
                         {help && (
-                            <div>
+                            <div className='dropdown'>
                                 <HelpCenter />
                             </div>
                         )}

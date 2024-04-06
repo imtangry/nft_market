@@ -7,6 +7,16 @@
     @apply absolute rounded-lg bg-slate-100 dark:bg-slate-600 px-2 py-2 min-w-52 top-full mt-2 shadow-xl shadow-slate-900;
     z-index: 99;
   }
+
+  .themeable{
+    @apply bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-50;
+  }
+
+  .absy-center{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 }
 
 :root {
@@ -26,6 +36,7 @@ body, html{
   padding: 0;
   width: 100%;
   height: 100%;
+  font-size: 14px;
   overflow: hidden;
 }
 

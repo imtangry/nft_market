@@ -74,7 +74,7 @@ const SideBar = ({ setOpenSideMenu }) => {
   }
 
   return (
-    <div className="absolute top-0 left-0 bottom-0 w-3/4 border-right shadow-[4px_0px_10px_0px_rgba(0,0,0,0.1)] bg-slate-100 dark:bg-slate-800 py-6 px-4">
+    <div className="fixed top-0 left-0 bottom-0 w-3/4 border-right shadow-[4px_0px_10px_0px_rgba(0,0,0,0.1)] themeable py-6 px-4">
       <GrClose className="absolute right-2 top-2 cursor-pointer text-xl" onClick={e => (setOpenSideMenu(false))} />
       <div className="pt-2">
         <Logo />
