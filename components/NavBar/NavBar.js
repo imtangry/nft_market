@@ -58,9 +58,21 @@ const NavBar = () => {
         setOpenSideMenu(true)
     }
 
+    const handleGlobalClick = () => {
+        hiddenAllMenu()
+    }
+
     const { state: { theme }, setState } = useBaseContext()
+
+    useEffect(() => {
+        // 在组件挂载后添加事件监听器
+        document.addEventListener('click', handleGlobalClick, true);
+        // 在组件卸载前移除事件监听器
+        return () => document.removeEventListener('click', handleGlobalClick, true);
+    }, []);
+
     return (
-        <div className='sticky top-0 w-screen themeable h-20'>
+        <div className='sticky top-0 w-screen themeable h-20 z-50'>
             <div className='container mx-auto h-full px-4 sm:px-2 dark:bg-slate-800 flex items-center justify-between'>
                 {/* bar left */}
                 <div className='flex items-center'>

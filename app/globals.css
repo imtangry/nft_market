@@ -2,10 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer{
+@layer components{
   .dropdown{
-    @apply absolute rounded-lg bg-slate-100 dark:bg-slate-600 px-2 py-2 min-w-52 top-full mt-2 shadow-xl shadow-slate-900;
+    @apply absolute rounded-lg bg-slate-100 dark:bg-slate-600 px-2 py-2 min-w-52 top-full mt-2;
     z-index: 99;
+    box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.2);
   }
 
   .themeable{
