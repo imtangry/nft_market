@@ -33,7 +33,6 @@ const NavBar = () => {
         setOpenSideMenu(false)
     }
     const openMenu = (e) => {
-        console.log(44);
         e.stopPropagation()
         const btnText = e.target.innerText;
         hiddenAllMenu()
@@ -62,7 +61,6 @@ const NavBar = () => {
 
     const handleGlobalClick = (e) => {
         console.log(e)
-        e.stopPropagation()
         hiddenAllMenu()
     }
 
@@ -76,11 +74,7 @@ const NavBar = () => {
     }, []);
 
     return (
-        <div className='sticky top-0 w-screen themeable h-20 z-50 shadow-lg' onClick={(e)=>{
-            console.log(22);
-            e.stopPropagation()
-            return false
-        }}>
+        <div className='sticky top-0 w-screen themeable h-20 z-50 shadow-lg'>
             <div className='container mx-auto h-full px-4 sm:px-2 dark:bg-slate-800 flex items-center justify-between'>
                 {/* bar left */}
                 <div className='flex items-center'>
