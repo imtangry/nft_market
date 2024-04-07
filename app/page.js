@@ -1,6 +1,6 @@
 'use client'
 
-import { NavBar, Footer, NFTBigSlider } from "@/components";
+import { NavBar, Footer, NFTBigSlider, Title } from "@/components";
 import { useBaseContext } from "@/components/Providers";
 
 export default function Home() {
@@ -8,8 +8,11 @@ export default function Home() {
   return (
     <div className={[theme, 'overflow-auto h-screen'].join(' ')}>
       <NavBar />
-      <main className="container mx-auto">
-        <NFTBigSlider/>
+      <main className="themeable">
+        <div className="container mx-auto overflow-auto py-8">
+          <NFTBigSlider />
+          <Title title='Broswe By Category' subTitle="Explore NFTs in the most featured categories" />
+        </div>
       </main>
       <Footer />
     </div>
