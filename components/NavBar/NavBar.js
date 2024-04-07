@@ -127,9 +127,9 @@ const NavBar = () => {
                     </div>
 
                     {/* Create button */}
-                    <div className='mx-2 tracking-widest hidden md:block '>
+                    {/* <div className='mx-2 tracking-widest hidden md:block '>
                         <Button btnText='创建'></Button>
-                    </div>
+                    </div> */}
 
                     {/* User Profile */}
                     <div className='mx-2 relative'>
