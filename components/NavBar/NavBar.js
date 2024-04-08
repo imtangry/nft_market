@@ -11,11 +11,10 @@ import { HiOutlineMoon, HiOutlineSun } from "react-icons/hi";
 //  IMPORT ICON END
 
 // IMPORT COMP START
-import { Discover, HelpCenter, Notification, Profile, SideBar } from './index'
-import { Button, Logo } from '@/components'
+import { Discover, HelpCenter, Notification, SideBar, User } from './index'
+import { Logo } from '@/components'
 // IMPORT COMP END
 
-import images from '@/assets/image/index'
 import { useBaseContext } from '../Providers'
 
 const NavBar = () => {
@@ -132,12 +131,7 @@ const NavBar = () => {
                     </div> */}
 
                     {/* User Profile */}
-                    <div className='mx-2 relative'>
-                        <div className='p-2 rounded-full bg-slate-200 hover:bg-slate-100 cursor-pointer'>
-                            <Image src={images.user} width='24' height='24' alt='USER ICON' onClick={openProfile} />
-                        </div>
-                        {profile && <Profile />}
-                    </div>
+                    <User profile={profile} openProfile={openProfile} />
                 </div>
 
                 {/* mobile menu */}
