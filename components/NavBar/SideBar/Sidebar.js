@@ -5,7 +5,7 @@ import { GrClose } from 'react-icons/gr'
 import { TiArrowSortedDown, TiArrowSortedUp } from 'react-icons/ti'
 import { Button, SocialLink, Logo } from "@/components"
 
-const SideBar = ({ setOpenSideMenu }) => {
+const Sidebar = ({ setOpenSideMenu }) => {
   const [openDiscover, setOpenDiscover] = useState(false)
   const [openHelp, setOpenHelp] = useState(false)
 
@@ -85,7 +85,6 @@ const SideBar = ({ setOpenSideMenu }) => {
         <SocialLink />
 
         <div className="my-4 border-b border-slate-500" />
-
         <div className="font-bold">
 
           <div>
@@ -127,7 +126,6 @@ const SideBar = ({ setOpenSideMenu }) => {
       </div>
 
       <div className="border-b border-slate-500 my-4" />
-
       <div>
         <Button btnText="创建"></Button>
         <Button className='ml-4' btnText="连接钱包"></Button>
@@ -136,4 +134,4 @@ const SideBar = ({ setOpenSideMenu }) => {
   )
 }
 
-export default SideBar
+export default Sidebar
