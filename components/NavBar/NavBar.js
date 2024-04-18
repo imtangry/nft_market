@@ -11,7 +11,7 @@ import { HiOutlineMoon, HiOutlineSun } from "react-icons/hi";
 //  IMPORT ICON END
 
 // IMPORT COMP START
-import { Discover, HelpCenter, Notification, SideBar, User } from './index'
+import { Discover, HelpCenter, Notification, Sidebar, User } from './index'
 import { Logo } from '@/components'
 // IMPORT COMP END
 
@@ -143,7 +143,7 @@ const NavBar = () => {
             {/* SideBar */}
             {openSideMenu && (
                 <div>
-                    <SideBar setOpenSideMenu={setOpenSideMenu} />
+                    <Sidebar setOpenSideMenu={setOpenSideMenu} />
                 </div>
             )}
         </div>
