@@ -8,6 +8,7 @@ import Logo from "./Shared/Logo";
 import Title from "./Shared/Title";
 
 import NFTBigSlider from "./NFTSlider/NFTBigSlider";
+import AccountButton from "./AccountButton/AccountButton";
 
 export {
     Button,
@@ -19,5 +20,6 @@ export {
 
     Title,
 
-    NFTBigSlider
+    NFTBigSlider,
+    AccountButton
 }
