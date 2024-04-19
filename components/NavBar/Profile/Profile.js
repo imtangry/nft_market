@@ -1,3 +1,4 @@
+'use client'
 import Image from "next/image"
 import { FaUserAlt, FaRegImage, FaUserEdit } from 'react-icons/fa'
 import { MdHelpCenter } from "react-icons/md"
@@ -5,8 +6,13 @@ import { TbDownloadOff, TbDownload } from 'react-icons/tb'
 
 import image from "@/assets/image"
 import Link from "next/link"
+import { useAccount } from "wagmi"
+import { signOut } from "next-auth/react"
+
 
 const Profile = () => {
+  const { address } = useAccount();
+
   return (
     <div className="dropdown right-0">
       <div className="flex px-2 mt-2">
@@ -16,7 +22,7 @@ const Profile = () => {
 
         <div className="flex flex-col justify-center flex-1 overflow-hidden">
           <p className="font-bold">Rhys</p>
-          <small>123333333..22222f2f2f2f2f2f2f2f2f2f22.</small>
+          <small>{address}</small>
         </div>
       </div>
 
@@ -57,7 +63,7 @@ const Profile = () => {
           <div className="flex items-center rounded-md pl-2 hover:bg-slate-300 dark:hover:bg-slate-500">
             <TbDownload />
             <p className="pl-3 flex-1">
-              <Link className="inline-block py-3 pr-2 w-full" href={{ pathname: 'disconnect' }}>Disconnect</Link>
+              <span className="inline-block py-3 pr-2 w-full cursor-pointer" onClick={ signOut }>Disconnect!</span>
             </p>
           </div>
 

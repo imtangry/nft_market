@@ -3,6 +3,7 @@ import { createAuthenticationAdapter } from '@rainbow-me/rainbowkit';
 import { SiweMessage } from 'siwe';
 const AuthAdapter = createAuthenticationAdapter({
   getNonce: async () => {
+    console.log('Get Nonce');
     return await getCsrfToken();
   },
   createMessage: ({ nonce, address, chainId }) => {
@@ -24,7 +25,9 @@ const AuthAdapter = createAuthenticationAdapter({
       message: JSON.stringify(message),
       redirect: false,
       signature,
+      callbackUrl: '/test'
     })
+    console.log('verifyRes---------', verifyRes);
     return Boolean(verifyRes.ok);
   },
   signOut: async () => {

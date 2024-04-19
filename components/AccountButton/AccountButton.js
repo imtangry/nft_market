@@ -1,7 +1,11 @@
+/* eslint-disable @next/next/no-img-element */
 import { ConnectButton } from '@rainbow-me/rainbowkit'
-import { Image } from 'next/image'
+import { useSession } from "next-auth/react"
+import { Button } from '@/components';
 
-const AccountButton = () => {
+const AccountButton = ({ userIcon }) => {
+    const session = useSession()
+    console.log(session);
     return (
         <ConnectButton.Custom>
             {
@@ -17,6 +21,7 @@ const AccountButton = () => {
                     // Note: If your app doesn't use authentication, you
                     // can remove all 'authenticationStatus' checks
                     const ready = mounted && authenticationStatus !== 'loading';
+                    console.log(authenticationStatus);
                     const connected =
                         ready &&
                         account &&
@@ -37,9 +42,9 @@ const AccountButton = () => {
                             {(() => {
                                 if (!connected) {
                                     return (
-                                        <button onClick={openConnectModal} type="button">
+                                        <Button onClick={openConnectModal}>
                                             登 陆
-                                        </button>
+                                        </Button>
                                     );
                                 }
                                 if (chain.unsupported) {
@@ -68,11 +73,10 @@ const AccountButton = () => {
                                                     }}
                                                 >
                                                     {chain.iconUrl && (
-                                                        <Image
+                                                        <img
                                                             alt={chain.name ?? 'Chain icon'}
                                                             src={chain.iconUrl}
-                                                            width={12}
-                                                            height={12}
+                                                            style={{ width: 12, height: 12 }}
                                                         />
                                                     )}
                                                 </div>
@@ -81,10 +85,8 @@ const AccountButton = () => {
                                         </button>
                                         <button className="primary-bth" onClick={openAccountModal} type="button">
                                             {account.displayName}
-                                            {account.displayBalance
-                                                ? ` (${account.displayBalance})`
-                                                : ''}
                                         </button>
+                                        {userIcon}
                                     </div>
                                 );
                             })()}

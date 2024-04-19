@@ -1,8 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react'
 
-import Image from 'next/image'
-
 //  IMPORT ICON START
 import { MdOutlineNotificationsNone, MdOutlineNotificationsActive } from 'react-icons/md'
 import { BiSearchAlt } from 'react-icons/bi'
@@ -29,7 +27,7 @@ const NavBar = () => {
         setHelp(false)
         setNotification(false)
         setProfile(false)
-        setOpenSideMenu(false)
+        // setOpenSideMenu(false)
     }
     const openMenu = (e) => {
         e.stopPropagation()
@@ -58,19 +56,19 @@ const NavBar = () => {
         setOpenSideMenu(true)
     }
 
-    const handleGlobalClick = (e) => {
-        console.log(e)
-        hiddenAllMenu()
-    }
+    // const handleGlobalClick = (e) => {
+    //     console.log(e);
+    //     hiddenAllMenu()
+    // }
 
     const { state: { theme }, setState } = useBaseContext()
 
-    useEffect(() => {
-        // 在组件挂载后添加事件监听器
-        document.addEventListener('click', handleGlobalClick, true);
-        // 在组件卸载前移除事件监听器
-        return () => document.removeEventListener('click', handleGlobalClick, true);
-    }, []);
+    // useEffect(() => {
+    //     // 在组件挂载后添加事件监听器
+    //     document.addEventListener('click', handleGlobalClick, true);
+    //     // 在组件卸载前移除事件监听器
+    //     return () => document.removeEventListener('click', handleGlobalClick, true);
+    // }, []);
 
     return (
         <div className='sticky top-0 w-screen themeable h-20 z-50 shadow-lg'>

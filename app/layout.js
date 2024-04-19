@@ -1,4 +1,5 @@
 import { Providers } from "@/components/Providers";
+import { SessionProvider } from "next-auth/react"
 import { Inter } from "next/font/google";
 import "./globals.css";
 
@@ -13,9 +14,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={[inter.className, 'text-sm'].join(' ')}>
-        <Providers>
-          {children}
-        </Providers>
+        <SessionProvider>
+          <Providers>
+            {children}
+          </Providers>
+        </SessionProvider>
       </body>
     </html>
   );

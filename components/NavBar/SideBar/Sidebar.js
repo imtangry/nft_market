@@ -126,10 +126,10 @@ const Sidebar = ({ setOpenSideMenu }) => {
       </div>
 
       <div className="border-b border-slate-500 my-4" />
-      <div>
+      {/* <div>
         <Button btnText="创建"></Button>
         <Button className='ml-4' btnText="连接钱包"></Button>
-      </div>
+      </div> */}
     </div>
   )
 }
