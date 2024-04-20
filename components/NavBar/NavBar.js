@@ -71,7 +71,7 @@ const NavBar = () => {
     // }, []);
 
     return (
-        <div className='sticky top-0 w-screen themeable h-20 z-50 shadow-lg'>
+        <div className='sticky top-0 themeable h-20 z-50 shadow-lg'>
             <div className='container mx-auto h-full px-4 sm:px-2 dark:bg-slate-800 flex items-center justify-between'>
                 {/* bar left */}
                 <div className='flex items-center'>
