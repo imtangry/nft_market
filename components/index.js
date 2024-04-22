@@ -9,6 +9,7 @@ import Title from "./Shared/Title";
 
 import NFTBigSlider from "./NFTSlider/NFTBigSlider";
 import NFTCollectionSlider from "./NFTSlider/NFTCollectionSlider";
+import NFTItemSlider from "./NFTSlider/NFTItemSlider";
 import AccountButton from "./AccountButton/AccountButton";
 
 export {
@@ -23,5 +24,6 @@ export {
 
     NFTBigSlider,
     NFTCollectionSlider,
+    NFTItemSlider,
     AccountButton
 }

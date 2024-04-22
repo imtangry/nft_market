@@ -133,7 +133,7 @@ const NFTBigSlider = () => {
             </div>
             {/* 展示卡片 */}
             <div className="shadow-xl flex-1 relative w-1/2 min-w-96 min-h-80 bg-sky-300 rounded-2xl mt-6 md:mt-0 md:top-8 md:-left-6 border-8 border-slate-50">
-                <Image src={currentNFT.nftImage} layout='fill' objectFit="cover" alt="NFT Image" />
+                <Image src={currentNFT.nftImage} fill={true} objectFit="cover" alt="NFT Image" />
                 <div className="flex items-center absolute top-4 h-8 right-4 themeable rounded-full px-4">
                     <FaHeart className="mr-4"/>
                     {currentNFT.like}
