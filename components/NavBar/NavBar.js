@@ -71,23 +71,23 @@ const NavBar = () => {
     // }, []);
 
     return (
-        <div className='sticky top-0 themeable h-20 z-50 shadow-lg'>
-            <div className='container mx-auto h-full px-4 sm:px-2 dark:bg-slate-800 flex items-center justify-between'>
+        <div className='sticky top-0 themeable h-20 z-50 shadow dark:shadow-neutral-700'>
+            <div className='container mx-auto h-full px-4 sm:px-2 flex items-center justify-between'>
                 {/* bar left */}
                 <div className='flex items-center'>
                     {/* logo */}
                     <Logo />
                     {/* search */}
-                    <div className='relative hidden md:block'>
-                        <input type="text" placeholder='搜索NFT' className='peer px-4 pr-8 w-52 md:w-64 lg:72 outline-0 rounded-full h-10 bg-transparent border border-slate-600 focus:border-slate-400' />
-                        <BiSearchAlt onClick={() => { }} className='absolute text-xl top-1/2 right-2 -translate-y-1/2 text-slate-600 peer-focus:text-slate-400' />
+                    <div className='relative hidden md:block ml-6'>
+                        <input type="text" placeholder='搜索NFT' className='peer text-lg themeable-input px-4 pr-8 w-52 md:w-72 lg:72 outline-0 rounded-xl h-14 border' />
+                        <BiSearchAlt onClick={() => { }} className='absolute text-2xl top-1/2 right-2 -translate-y-1/2 text-neutral-400' />
                     </div>
                 </div>
 
                 {/* bar right */}
-                <div className='items-center text-sm flex ml-auto'>
+                <div className='items-center text-lg flex ml-auto'>
                     {/* Discover */}
-                    <div className='mx-2 relative hidden md:block '>
+                    <div className='mx-4 relative hidden md:block '>
                         <p className='tracking-widest cursor-pointer' onClick={openMenu}>发现</p>
                         {discover && (
                             <div className='dropdown'>
@@ -96,7 +96,7 @@ const NavBar = () => {
                         )}
                     </div>
                     {/* Help Center */}
-                    <div className='mx-2 relative hidden md:block '>
+                    <div className='mx-4 relative hidden md:block '>
                         <p className='tracking-widest cursor-pointer' onClick={openMenu}>帮助</p>
                         {help && (
                             <div className='dropdown'>
@@ -105,16 +105,16 @@ const NavBar = () => {
                         )}
                     </div>
 
-                    <div className='w-1 h-4 border-r border-slate-600 mx-2 hidden md:block ' />
+                    <div className='w-1 h-4 border-r border-slate-600 mx-4 hidden md:block ' />
 
                     {/* theme change */}
-                    <div className='mx-2 text-xl'>
+                    <div className='mx-2 text-3xl'>
                         {theme === 'dark' ? <HiOutlineMoon className='cursor-pointer' onClick={() => { setState((v) => ({ ...v, theme: 'light' })) }} /> : <HiOutlineSun className='cursor-pointer' onClick={() => { setState((v) => ({ ...v, theme: 'dark' })) }} />}
                     </div>
 
                     {/* Notification */}
                     <div className='mx-2 relative'>
-                        <MdOutlineNotificationsNone className='text-2xl cursor-pointer' onClick={openNotification} />
+                        <MdOutlineNotificationsNone className='text-3xl cursor-pointer' onClick={openNotification} />
                         {/* <MdOutlineNotificationsActive onClick={openNotification} /> */}
                         {notification && (
                             <div>

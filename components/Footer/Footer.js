@@ -27,8 +27,8 @@ const Footer = () => {
         <div className='flex-1 min-w-60 px-4 my-4'>
           <h3 className='font-bold text-base'>Subscribe</h3>
           <div className='relative mt-6'>
-            <input className='border-0 outline-0 pl-4 text-base pr-11 text-slate-50 bg-slate-500 focus:bg-slate-400 dark:bg-slate-500 dark:focus:bg-slate-400 h-16 w-full rounded-full' type="text" />
-            <RiSendPlaneFill className='absy-center text-slate-50 dark:text-slate-900 right-4 text-2xl' />
+            <input className='border-0 outline-0 pl-4 text-base pr-11 themeable-input h-16 w-full' type="text" />
+            <RiSendPlaneFill className='absy-center text-neutral-500 dark:text-neutral-400 right-4 text-2xl' />
           </div>
         </div>
       </div>

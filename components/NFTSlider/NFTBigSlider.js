@@ -62,11 +62,11 @@ const NFTBigSlider = () => {
         }
     }
     return (
-        <div className="my-12 flex justify-center w-full flex-wrap md:flex-nowrap px-4">
+        <div className="my-12 flex justify-center w-full flex-wrap md:flex-nowrap px-4 mb-24">
             {/* 信息卡片*/}
-            <div className="flex-1 z-10 bg-slate-200 dark:bg-slate-600 w-1/2 px-6 py-4 rounded-md dark:shadow-lg shadow-lg min-w-96">
+            <div className="flex-1 z-10 bg-neutral-200 dark:bg-neutral-800 w-1/2 px-6 py-4 rounded-md dark:shadow-lg shadow-lg min-w-96">
                 {/* title */}
-                <h1 className="text-2xl">{currentNFT.title}</h1>
+                <h1 className="text-2xl font-bold">{currentNFT.title}</h1>
                 {/* 基本信息 */}
                 <div className="flex items-center my-4">
                     <div className="flex flex-1">

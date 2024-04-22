@@ -2,6 +2,7 @@
 import { ConnectButton } from '@rainbow-me/rainbowkit'
 import { useSession } from "next-auth/react"
 import { Button } from '@/components';
+import { AiOutlineLoading } from "react-icons/ai";
 
 const AccountButton = ({ userIcon }) => {
     const session = useSession()
@@ -31,15 +32,20 @@ const AccountButton = ({ userIcon }) => {
                     return (
                         <div
                             {...(!ready && {
-                                'aria-hidden': true,
                                 'style': {
-                                    opacity: 0,
                                     pointerEvents: 'none',
                                     userSelect: 'none',
                                 },
                             })}
                         >
                             {(() => {
+                                if (!ready) {
+                                    return (
+                                        <Button>
+                                            <AiOutlineLoading className='animate-spin'/>
+                                        </Button>
+                                    );
+                                }
                                 if (!connected) {
                                     return (
                                         <Button onClick={openConnectModal}>
