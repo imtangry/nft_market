@@ -19,6 +19,13 @@ const sliderData = [
         name: 'C Food company',
         image: 'https://i.seadn.io/s/raw/files/2368b5cd51cce0f754f266a5a9d83110.png?auto=format&dpr=1&w=1000'
     },
+    {
+        title: '加密社区一号超市',
+        id: 3,
+        owner: '0x123411',
+        name: 'C Market company',
+        image: 'https://i.seadn.io/s/raw/files/2368b5cd51cce0f754f266a5a9d83110.png?auto=format&dpr=1&w=1000'
+    },
 ]
 
 const NFTCollectionSlider = () => {
@@ -38,7 +45,7 @@ const NFTCollectionSlider = () => {
                     {
                         sliderData.map(e => (
                             <div key={e.id} className='relative h-[440px] bg-neutral-400'>
-                                <Image src={e.image} alt='Collection Img' fill={true} object-fit="cover" />
+                                <Image src={e.image} alt='Collection Img' fill={true} object-fit="contain" />
                                 <h3>{e.title}</h3>
                             </div>
                         ))

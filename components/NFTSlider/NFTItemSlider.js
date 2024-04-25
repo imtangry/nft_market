@@ -1,8 +1,9 @@
+'use client'
+import { useEffect, useRef } from 'react'
 // 某个分类的Slider展示 目前想法是可以展示不同入驻企业的特殊NFT
-import Image from 'next/image';
-import { createRef } from 'react';
+// import Image from 'next/image';
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
-import Slider from "@ant-design/react-slick";
+
 
 const sliderData = [
     {
@@ -64,70 +65,60 @@ const sliderData = [
 ]
 
 const NFTItemSlider = () => {
-    const slider = createRef();
-
-    const settings = {
-        dots: true,
-        infinite: false,
-        speed: 500,
-        slidesToShow: 4,
-        slidesToScroll: 1,
-        initialSlide: 0,
-        responsive: [
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 1,
-                    infinite: true,
-                    dots: true
-                }
+    const swiperEl = useRef(null)
+    const breakpoints = {
+        breakpoints: {
+            640: {
+                slidesPerView: 2,
             },
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                    initialSlide: 2
-                }
+            1024: {
+                slidesPerView: 3,
             },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-            }
-        ]
-    };
+        },
+    }
 
+    useEffect(() => {
+        const el = swiperEl.current
+        Object.assign(el, {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            breakpoints: {
+                "400": {
+                    slidesPerView: 2,
+                    spaceBetween: 10,
+                },
+                "1024": {
+                    slidesPerView: 4,
+                    spaceBetween: 10,
+                },
+            },
+        });
+    }, [])
     return (
-        <div className='group/card w-full px-4 flex'>
-            {/* 上一页 */}
-            <div className='hidden md:flex group/item opacity-0 duration-300 group-hover/card:opacity-100 cursor-pointer w-8 bg-gradient-to-b from-neutral-400 hover:from-neutral-500 rounded-xl justify-center items-center'
-                onClick={() => (slider.current.slickPrev())}
+        <div className='group/card w-full px-4 flex my-10'>
+            <div className='w-7 hidden md:flex rounded-lg group/item opacity-0 duration-300 group-hover/card:opacity-100 cursor-pointer bg-gradient-to-b from-neutral-100 hover:from-neutral-200 justify-center items-center z-10'
+                onClick={() => {
+                    swiperEl.current.swiper.slidePrev()
+                }}
             >
                 <BsChevronLeft className='hidden group-hover/item:block text-3xl font-bold' />
             </div>
             {/* 轮播 */}
-            <div className='flex-1 overflow-hidden cursor-pointer rounded-xl mx-2'>
-
-                <div className="slider-container">
-                    <Slider {...settings} ref={slider}>
-                        {sliderData.map(e => (
-                            <div key={e.id} className='px-4'>
-                                <div className='flex items-center rounded-lg justify-center w-full font-xl h-40 bg-slate-500'>
-                                    {e.title}
-                                </div>
+            <div className='flex-1 h-64 overflow-hidden mx-2 rounded-xl'>
+                <swiper-container ref={swiperEl}>
+                    {sliderData.map(e => (
+                        <swiper-slide key={e.id}>
+                            <div className='flex h-64 w-full items-center rounded-xl justify-center font-xl bg-slate-500'>
+                                {e.title}
                             </div>
-                        ))}
-                    </Slider>
-                </div>
-
+                        </swiper-slide>
+                    ))}
+                </swiper-container>
             </div>
-            {/* 下一页 */}
-            <div className='hidden md:flex group/item opacity-0 duration-300 group-hover/card:opacity-100 cursor-pointer w-8 bg-gradient-to-b from-neutral-400 hover:from-neutral-500 rounded-xl justify-center items-center'
-                onClick={() => (slider.current.slickNext())}
+            <div className='hidden w-7 md:flex group/item rounded-lg opacity-0 duration-300 group-hover/card:opacity-100 cursor-pointer bg-gradient-to-b from-neutral-100 hover:from-neutral-200 justify-center items-center z-10'
+                onClick={() => {
+                    swiperEl.current.swiper.slideNext();
+                }}
             >
                 <BsChevronRight className='hidden group-hover/item:block text-3xl font-bold' />
             </div>
