@@ -1,8 +1,7 @@
 import NextAuth from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
-import { getCsrfToken } from "next-auth/react"
 import { SiweMessage } from "siwe"
-export const { handlers, signIn, signOut, auth } = NextAuth(
+export const { handlers, auth } = NextAuth(
   (req) => {
     return {
       providers: [
